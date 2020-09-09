@@ -1,0 +1,18 @@
+{
+  "name": "donny-burnside",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donnyburnside/donnyburnside.github.io.git"
+  },
+  "author": {
+    "name": "Donny Burnside",
+    "url": "http://www.donnyburnside.com"
+  },
+  "homepage": "http://www.donnyburnside.com",
+  "license": "UNLICENSED"
+}
