@@ -2,9 +2,15 @@
   "name": "donny-burnside",
   "version": "1.0.0",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "start": "cross-env ELEVENTY_ENV=development eleventy --config=eleventy.config.js --serve --watch",
+    "build": "cross-env ELEVENTY_ENV=production eleventy --config=eleventy.config.js"
+  },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
+    "cross-env": "^7.0.2"
+  },
   "browserslist": [
     "last 3 chrome versions",
     "last 3 chromeandroid versions",

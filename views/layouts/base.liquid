@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ metadata.title | escape }}</title>
+    <meta name="description" content="{{ metadata.description | escape }}">
+
+    <script type="text/javascript">
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    </script>
+
+    {%- if env == 'production' -%}
+      <!-- Production-only code such as tracking scripts, etc -->
+    {%- endif -%}
+  </head>
+  <body>
+    <nav role="navigation">
+      <div class="container">
+        {%- if page.url == '/' -%}
+          <span>
+            {{- metadata.title | escape -}}
+          </span>
+        {%- else -%}
+          <a href="{{ '/' | url }}" rel="home">
+            {{- metadata.title | escape -}}
+          </a>
+        {%- endif -%}
+        <div role="menubar">
+          <a class="{% if page.url contains '/about/' %}is-current{% endif %}" href="{{ '/about/' | url }}" accesskey="a" role="menuitem">
+            {{- 'About' | escape -}}
+          </a>
+          <a class="{% if page.url contains '/blog/' %}is-current{% endif %}" href="{{ '/blog/' | url }}" accesskey="b" role="menuitem">
+            {{- 'Blog' | escape -}}
+          </a>
+          <a class="{% if page.url contains '/contact/' %}is-current{% endif %}" href="{{ '/contact/' | url }}" accesskey="c" role="menuitem">
+            {{- 'Contact' | escape -}}
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <main role="main">
+      {{- content | safe -}}
+    </main>
+
+    <footer role="contentinfo">
+      <div class="container">
+        Copyright &copy; {{ 'now' | date: '%Y' }} {{ metadata.title | escape }}.
+      </div>
+    </footer>
+
+    <div style="height: 0; overflow: hidden;">
+      {%- include icon-spritesheet -%}
+    </div>
+  </body>
+</html>

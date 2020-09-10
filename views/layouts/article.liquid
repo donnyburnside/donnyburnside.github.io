@@ -1,0 +1,11 @@
+---
+layout: base.liquid
+---
+<div class="container">
+  <h1>{{ title | escape }}</h1>
+  {{- content | safe -}}
+  <hr />
+  <a href="{{ '/blog/' | url }}">
+    {{- 'Back to the Blog' | escape -}}
+  </a>
+</div>

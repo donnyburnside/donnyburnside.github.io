@@ -1,0 +1,29 @@
+---
+layout: base.liquid
+pagination:
+  data: collections.blog
+  size: 2
+  reverse: true
+---
+<section>
+  <div class="container">
+    <h1>{{ title | escape }}</h1>
+    {{- content | safe -}}
+  </div>
+</section>
+{%- if pagination.items -%}
+  <hr />
+  <section>
+    <div class="container">
+      <h2>{{ 'Latest Posts' | escape }}</h2>
+      {% for post in pagination.items %}
+        <article>
+          <h2>
+            <a href="{{ post.url | url }}">{{ post.data.title }}</a>
+          </h2>
+          <time data-timestamp="{{ post.data.timestamp }}">{{ post.date }}</time>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{%- endif -%}
