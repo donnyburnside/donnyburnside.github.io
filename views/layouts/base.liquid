@@ -10,6 +10,8 @@
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
     </script>
 
+    <link rel="stylesheet" href="{{ '/static/app.css' | url }}">
+
     {%- if env == 'production' -%}
       <!-- Production-only code such as tracking scripts, etc -->
     {%- endif -%}
@@ -53,5 +55,7 @@
     <div style="height: 0; overflow: hidden;">
       {%- include icon-spritesheet -%}
     </div>
+
+    <script src="{{ '/static/app.js' | url }}"></script>
   </body>
 </html>
