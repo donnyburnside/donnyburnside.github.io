@@ -3,13 +3,32 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "cross-env ELEVENTY_ENV=development eleventy --config=eleventy.config.js --serve --watch",
-    "build": "cross-env ELEVENTY_ENV=production eleventy --config=eleventy.config.js"
+    "start:11ty": "cross-env ELEVENTY_ENV=development eleventy --config=eleventy.config.js --serve --watch",
+    "start:webpack": "cross-env NODE_ENV=development webpack --hide-modules --no-progress --watch",
+    "start": "concurrently --kill-others \"npm run start:11ty\" \"npm run start:webpack\"",
+    "build:11ty": "cross-env ELEVENTY_ENV=production eleventy --config=eleventy.config.js",
+    "build:webpack": "cross-env NODE_ENV=production webpack --hide-modules --no-progress",
+    "build": "npm run build:11ty && npm run build:webpack"
   },
   "dependencies": {},
   "devDependencies": {
     "@11ty/eleventy": "^0.11.0",
-    "cross-env": "^7.0.2"
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "autoprefixer": "^9.8.6",
+    "babel-loader": "^8.1.0",
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^4.3.0",
+    "mini-css-extract-plugin": "^0.11.1",
+    "node-sass": "^4.14.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "postcss-loader": "^4.0.1",
+    "sass-loader": "^10.0.2",
+    "svg-spritemap-webpack-plugin": "^3.5.9",
+    "terser-webpack-plugin": "^4.1.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   },
   "browserslist": [
     "last 3 chrome versions",
