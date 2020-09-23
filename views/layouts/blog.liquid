@@ -6,20 +6,26 @@ pagination:
   reverse: true
 permalink: "blog/{% if pagination.pageNumber > 0 %}page-{{ pagination.pageNumber | plus: 1 }}/{% endif %}index.html"
 ---
-<div class="container">
-  <h1>{{ title | escape }}</h1>
-  {{- content | safe -}}
-  {%- if pagination.items -%}
-    <hr />
-    {% for post in pagination.items %}
-      <article>
-        <h2>
-          <a href="{{ post.url | url }}">{{ post.data.title }}</a>
-        </h2>
-        <time data-timestamp="{{ post.data.timestamp }}">{{ post.date }}</time>
-      </article>
-    {% endfor %}
-    <hr />
-    {%- include pagination -%}
-  {%- endif -%}
-</div>
+<section>
+  <div class="py-16 bg-gray-100">
+    <div class="w-full max-w-6xl mx-auto px-4">
+      <h1 class="heading-xl mb-4">{{ title | escape }}</h1>
+      {{- content | safe -}}
+    </div>
+  </div>
+  <div class="w-full max-w-6xl mx-auto px-4 py-16">
+    {%- if pagination.items -%}
+      <div class="flex flex-row flex-wrap">
+        {% for article in pagination.items %}
+          <div class="w-full md:w-1/2">
+            {%- include article-item,
+                article: article
+            -%}
+          </div>
+        {% endfor %}
+      </div>
+      <hr class="my-16" />
+      {%- include pagination -%}
+    {%- endif -%}
+  </div>
+</section>

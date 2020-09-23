@@ -1,5 +1,5 @@
 ---
-layout: page.liquid
+layout: contact.liquid
 title: Contact
 ---
 Lorem ipsum dolar

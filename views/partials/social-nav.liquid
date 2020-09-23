@@ -1,0 +1,12 @@
+{%- if metadata.social.size > 0 -%}
+  <nav aria-label="Social" role="navigation">
+    {%- for social in metadata.social -%}
+      <a class="inline-flex items-center{% unless forloop.last %} mr-4{% endunless %}" href="{{ social.url | url }}" title="{{ social.title | escape }}" target="_blank" rel="noopener noreferrer">
+        <svg class="block w-4 h-4 mr-2 fill-current" aria-hidden="true" role="presentation">
+          <use xlink:href="#sprite-{{ social.icon }}"></use>
+        </svg>
+        <span>{{ social.title | escape }}</span>
+      </a>
+    {%- endfor -%}
+  </nav>
+{%- endif -%}

@@ -1,11 +1,24 @@
 ---
 layout: base.liquid
 ---
-<div class="container">
-  <h1>{{ title | escape }}</h1>
-  {{- content | safe -}}
-  <hr />
-  <a href="{{ '/blog/' | url }}">
-    {{- 'Back to the Blog' | escape -}}
-  </a>
-</div>
+<article>
+  <div class="py-16 bg-gray-100">
+    <div class="w-full max-w-6xl mx-auto px-4">
+      <h1 class="heading-xl mb-4">{{ title | escape }}</h1>
+      <p>
+        {{ 'Posted on ' | escape }}
+        <time data-timestamp="{{ timestamp }}">{{ timestamp }}</time>
+      </p>
+    </div>
+  </div>
+  <div class="w-full max-w-6xl mx-auto px-4 py-16">
+    {{- content | safe -}}
+    <hr class="my-16" />
+    <a class="btn" href="{{ '/blog/' | url }}" title="{{- 'Back to the blog' | escape -}}">
+      <svg class="block w-4 h-4 mr-2 fill-current" aria-hidden="true" role="presentation">
+        <use xlink:href="#sprite-arrow-left"></use>
+      </svg>
+      <span>{{- 'Back to the blog' | escape -}}</span>
+    </a>
+  </div>
+</article>

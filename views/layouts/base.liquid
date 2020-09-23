@@ -17,40 +17,46 @@
     {%- endif -%}
   </head>
   <body>
-    <nav role="navigation">
-      <div class="container">
-        {%- if page.url == '/' -%}
-          <span>
-            {{- metadata.title | escape -}}
-          </span>
-        {%- else -%}
-          <a href="{{ '/' | url }}" rel="home">
-            {{- metadata.title | escape -}}
-          </a>
-        {%- endif -%}
-        <div role="menubar">
-          <a class="{% if page.url contains '/about/' %}is-current{% endif %}" href="{{ '/about/' | url }}" accesskey="a" role="menuitem">
-            {{- 'About' | escape -}}
-          </a>
-          <a class="{% if page.url contains '/blog/' %}is-current{% endif %}" href="{{ '/blog/' | url }}" accesskey="b" role="menuitem">
-            {{- 'Blog' | escape -}}
-          </a>
-          <a class="{% if page.url contains '/contact/' %}is-current{% endif %}" href="{{ '/contact/' | url }}" accesskey="c" role="menuitem">
-            {{- 'Contact' | escape -}}
-          </a>
+    <div class="min-h-screen flex flex-col">
+      <nav class="flex-none" role="navigation">
+        <div class="w-full max-w-6xl mx-auto px-4 flex flex-row flex-nowrap items-center">
+          {%- if page.url == '/' -%}
+            <span>
+              {{- metadata.title | escape -}}
+            </span>
+          {%- else -%}
+            <a href="{{ '/' | url }}" rel="home">
+              {{- metadata.title | escape -}}
+            </a>
+          {%- endif -%}
+          <div class="ml-auto" role="menubar">
+            <a class="{% if page.url contains '/about/' %}is-current{% endif %}" href="{{ '/about/' | url }}" accesskey="a" role="menuitem">
+              {{- 'About' | escape -}}
+            </a>
+            <a class="{% if page.url contains '/blog/' %}is-current{% endif %}" href="{{ '/blog/' | url }}" accesskey="b" role="menuitem">
+              {{- 'Blog' | escape -}}
+            </a>
+            <a class="{% if page.url contains '/contact/' %}is-current{% endif %}" href="{{ '/contact/' | url }}" accesskey="c" role="menuitem">
+              {{- 'Contact' | escape -}}
+            </a>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
 
-    <main role="main">
-      {{- content | safe -}}
-    </main>
+      <main class="flex-grow" role="main">
+        {{- content | safe -}}
+      </main>
 
-    <footer role="contentinfo">
-      <div class="container">
-        Copyright &copy; {{ 'now' | date: '%Y' }} {{ metadata.title | escape }}.
-      </div>
-    </footer>
+      <footer class="flex-none" role="contentinfo">
+        <div class="w-full max-w-6xl mx-auto px-4">
+          {% comment %}
+          {%- include social-nav -%}
+          <hr />
+          {% endcomment %}
+          Copyright &copy; {{ 'now' | date: '%Y' }} {{ metadata.title | escape }}.
+        </div>
+      </footer>
+    </div>
 
     <div style="height: 0; overflow: hidden;">
       {%- include icon-spritesheet -%}

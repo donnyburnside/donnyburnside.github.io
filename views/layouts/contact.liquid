@@ -1,0 +1,31 @@
+---
+layout: base.liquid
+---
+<section>
+  <div class="py-16 bg-gray-100">
+    <div class="w-full max-w-6xl mx-auto px-4">
+      <h1 class="heading-xl mb-4">{{ title | escape }}</h1>
+      <p>{{ 'Lorem ipsum dolar sit amet' | escape }}</p>
+    </div>
+  </div>
+  <div class="w-full max-w-6xl mx-auto px-4 py-16">
+    <div class="flex flex-row flex-wrap -mx-4">
+      <div class="w-full md:w-1/2 md:max-w-lg mb-8 md:mb-0 px-4">
+        {%- include contact-form -%}
+      </div>
+      <div class="w-full md:w-1/2 md:ml-auto px-4">
+        <dl class="mb-8">
+          <dt class="block mb-1 font-medium">{{ 'Address' | escape }}</dt>
+          <dd class="mb-3">{{ 'Hull & the East Riding of Yorkshire' | escape }}</dd>
+          <dt class="block mb-1 font-medium">{{ 'E-Mail' | escape }}</dt>
+          <dd class="mb-3">{{ 'hello@donnyburnside.com' | escape }}</dd>
+          <dt class="block mb-1 font-medium">{{ 'Phone' | escape }}</dt>
+          <dd class="mb-3">{{ '07794 811 480' | escape }}</dd>
+          <dt class="block mb-1 font-medium">{{ 'Web' | escape }}</dt>
+          <dd>{{ 'www.donnyburnside.com' | escape }}</dd>
+        </dl>
+        <p>Please note that I am not available for freelance projects.</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.heading-xl {
+    @apply text-5xl font-bold leading-none tracking-tight;
+}
+.heading-lg {
+    @apply text-4xl font-bold leading-none tracking-tight;
+}
+.heading-md {
+    @apply text-2xl font-bold leading-none tracking-tight;
+}
+
+.label {
+    @apply block mb-2 font-medium;
+}
+
+.input {
+    @apply block w-full p-2 bg-gray-100 text-gray-900 rounded transition-all duration-200 ease-in-out;
+
+    &:focus {
+        @apply outline-none shadow-outline;
+    }
+}
+
+.btn {
+    @apply inline-flex items-center appearance-none px-4 py-2 bg-black text-white rounded transition-all duration-200 ease-in-out;
+
+    &:focus {
+        @apply outline-none shadow-outline;
+    }
+
+    &:hover {
+        @apply bg-gray-800;
+    }
+}

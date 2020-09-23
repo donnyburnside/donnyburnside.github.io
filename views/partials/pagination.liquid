@@ -1,32 +1,32 @@
 {%- if pagination -%}
-  <nav aria-label="Pagination" role="navigation">
+  <nav class="flex items-center justify-between" aria-label="Pagination" role="navigation">
     {%- if pagination.page.previous -%}
-      <a href="{{ pagination.href.previous | url }}" title="{{ 'Previous Page' | escape }}">
-        <span>{{ 'Previous Page' | escape }}</span>
-        <svg aria-hidden="true" role="presentation">
-          <use xlink:href="#sprite-codepen"></use>
+      <a class="btn" href="{{ pagination.href.previous | url }}" title="{{ 'Previous Page' | escape }}">
+        <svg class="block w-4 h-4 fill-current" aria-hidden="true" role="presentation">
+          <use xlink:href="#sprite-chevron-left"></use>
         </svg>
+        <span class="sr-only">{{ 'Previous Page' | escape }}</span>
       </a>
     {%- else -%}
-      <span>
-        <span>{{ 'Previous Page' | escape }}</span>
-        <svg aria-hidden="true" role="presentation">
-          <use xlink:href="#sprite-codepen"></use>
+      <span class="btn pointer-events-none opacity-50">
+        <svg class="block w-4 h-4 fill-current" aria-hidden="true" role="presentation">
+          <use xlink:href="#sprite-chevron-left"></use>
         </svg>
+        <span class="sr-only">{{ 'Previous Page' | escape }}</span>
       </span>
     {%- endif -%}
     {%- if pagination.page.next -%}
-      <a href="{{ pagination.href.next | url }}" title="{{ 'Next Page' | escape }}">
-        <span>{{ 'Next Page' | escape }}</span>
-        <svg aria-hidden="true" role="presentation">
-          <use xlink:href="#sprite-codepen"></use>
+      <a class="btn" href="{{ pagination.href.next | url }}" title="{{ 'Next Page' | escape }}">
+        <span class="sr-only">{{ 'Next Page' | escape }}</span>
+        <svg class="block w-4 h-4 fill-current" aria-hidden="true" role="presentation">
+          <use xlink:href="#sprite-chevron-right"></use>
         </svg>
       </a>
     {%- else -%}
-      <span>
-        <span>{{ 'Next Page' | escape }}</span>
-        <svg aria-hidden="true" role="presentation">
-          <use xlink:href="#sprite-codepen"></use>
+      <span class="btn pointer-events-none opacity-50">
+        <span class="sr-only">{{ 'Next Page' | escape }}</span>
+        <svg class="block w-4 h-4 fill-current" aria-hidden="true" role="presentation">
+          <use xlink:href="#sprite-chevron-right"></use>
         </svg>
       </span>
     {%- endif -%}

@@ -1,7 +1,14 @@
 ---
 layout: base.liquid
 ---
-<div class="container">
-  <h1>{{ title | escape }}</h1>
-  {{- content | safe -}}
-</div>
+<section>
+  <div class="py-16 bg-gray-100">
+    <div class="w-full max-w-6xl mx-auto px-4">
+      <h1 class="heading-xl mb-4">{{ title | escape }}</h1>
+      <p>{{ 'Lorem ipsum dolar sit amet' | escape }}</p>
+    </div>
+  </div>
+  <div class="w-full max-w-6xl mx-auto px-4 py-16">
+    {{- content | safe -}}
+  </div>
+</section>
