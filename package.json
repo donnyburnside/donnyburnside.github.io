@@ -2,9 +2,17 @@
   "name": "donny-burnside",
   "version": "1.0.0",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "start": "cross-env ELEVENTY_ENV=development npx @11ty/eleventy --config=eleventy.config.js --serve --watch",
+    "build": "cross-env ELEVENTY_ENV=production npx @11ty/eleventy --config=eleventy.config.js",
+    "clean": "rimraf ./dist"
+  },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "@11ty/eleventy": "github:11ty/eleventy",
+    "cross-env": "^7.0.2",
+    "rimraf": "^3.0.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/donnyburnside/donnyburnside.github.io.git"

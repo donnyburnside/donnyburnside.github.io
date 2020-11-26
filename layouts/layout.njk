@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ site.locale | escape }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>
+      {%- if title -%}
+        {{ title | escape }} &ndash; {{ site.title | escape }}
+      {%- else -%}
+        {{ site.title | escape }}
+      {%- endif -%}
+    </title>
+
+    <script type="text/javascript">
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    </script>
+
+    {%- if env == 'production' -%}
+      <!-- Production-only code such as tracking scripts, etc -->
+    {%- endif -%}
+  </head>
+  <body>
+    <h1>{{ title | escape }}</h1>
+    {{- content | safe -}}
+  </body>
+</html>
