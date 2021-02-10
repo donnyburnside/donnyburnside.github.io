@@ -1,6 +1,9 @@
 # Dependencies
 /node_modules
 
+# Output
+/dist
+
 # Misc
 .DS_Store
 Thumbs.db
